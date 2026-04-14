@@ -11,12 +11,12 @@ const api = axios.create({
 
 
 export const registerUser = async (userData) => {
-    const response = await api.post(`${process.env.API_URL}/register`, userData)
+    const response = await api.post(`${import.meta.env.API_URL}/api/auth/register`, userData)
     return response.data;
 }
 
 export const loginUser = async (userData) => {
-    const response = await api.post(`${process.env.API_URL}/login`, userData)
+    const response = await api.post(`${import.meta.env.API_URL}/api/auth/login`, userData)
     return response.data;
 }
 
