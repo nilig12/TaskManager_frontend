@@ -23,29 +23,29 @@ api.interceptors.request.use((config) => {
 export default api
 
 export const createTask = async (taskData) => {
-    const response = await api.post("/", taskData);
+    const response = await api.post(`${process.env.API_URL}/tasks/`, taskData);
     return response.data;
 }
 
 export const getAllTasks = async () => {
-    const response = await api.get("/");
+    const response = await api.get(`${process.env.API_URL}/tasks/`);
     return response.data;
 }
 
 export const getTaskById = async (id) => {
-    const response = await api.get(`/${id}`);
+    const response = await api.get(`${process.env.API_URL}/tasks/${id}`);
     return response.data;
 }
 
 export const updateTask = async (id, taskData) => {
-    const response = await api.put(`/${id}`, taskData);
+    const response = await api.put(`${process.env.API_URL}/tasks/${id}`, taskData);
     return response.data;
 };
 
 
 
 export const deleteTask = async (id) => {
-    const response = await api.delete(`/${id}`);
+    const response = await api.delete(`${process.env.API_URL}/tasks/${id}`);
     return response.data;
 }
 
