@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_URL = process.env.API_URL 
+const API_URL = import.meta.env.API_URL
 
 const api = axios.create({
     baseURL: API_URL,
@@ -23,29 +23,29 @@ api.interceptors.request.use((config) => {
 export default api
 
 export const createTask = async (taskData) => {
-    const response = await api.post(`${import.meta.env.API_URL}/api/tasks/`, taskData);
+    const response = await api.post(`/api/tasks/`, taskData);
     return response.data;
 }
 
 export const getAllTasks = async () => {
-    const response = await api.get(`${import.meta.env.API_URL}/api/tasks/`);
+    const response = await api.get(`/api/tasks/`);
     return response.data;
 }
 
 export const getTaskById = async (id) => {
-    const response = await api.get(`${import.meta.env.API_URL}/api/tasks/${id}`);
+    const response = await api.get(`/api/tasks/${id}`);
     return response.data;
 }
 
 export const updateTask = async (id, taskData) => {
-    const response = await api.put(`${import.meta.env.API_URL}/api/tasks/${id}`, taskData);
+    const response = await api.put(`/api/tasks/${id}`, taskData);
     return response.data;
 };
 
 
 
 export const deleteTask = async (id) => {
-    const response = await api.delete(`${import.meta.env.API_URL}/api/tasks/${id}`);
+    const response = await api.delete(`$/api/tasks/${id}`);
     return response.data;
 }
 
